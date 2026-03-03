@@ -14,9 +14,9 @@
     <main>
         <!-- Botões de Navegação -->
         <div class="buttons">
-            <button class="btn" onclick="toggleSection('convidados')">Lista de Convidados</button>
-            <button class="btn" onclick="toggleSection('letraA')">Convidados com "A"</button>
-            <button class="btn" onclick="toggleSection('cincoLetras')">Convidados com 5 Letras</button>
+            <button class="btn" onclick="toggleSection('convidados')" aria-label="Mostrar lista completa de convidados">Lista de Convidados</button>
+            <button class="btn" onclick="toggleSection('letraA')" aria-label='Mostrar convidados com "A"'>Convidados com "A"</button>
+            <button class="btn" onclick="toggleSection('cincoLetras')" aria-label="Mostrar convidados com 5 letras">Convidados com 5 Letras</button>
         </div>
 
         <!-- Lista de Convidados -->
@@ -27,7 +27,7 @@
                 <button class="btn" onclick="addGuest()">Adicionar Convidado</button>
                 <button class="btn" onclick="removeGuest()">Remover Convidado</button>
                 <button class="btn" onclick="sortList()">Ordenar Lista</button>
-                <input type="text" id="filterConvidados" placeholder="Filtrar por nome" oninput="filterList()">
+                <input type="text" id="filterConvidados" placeholder="Filtrar por nome" oninput="filterList('guestList', 'filterConvidados')">
             </div>
         </section>
 
@@ -39,7 +39,7 @@
                 <button class="btn" onclick="addGuest()">Adicionar Convidado</button>
                 <button class="btn" onclick="removeGuest()">Remover Convidado</button>
                 <button class="btn" onclick="sortList()">Ordenar Lista</button>
-                <input type="text" id="filterA" placeholder="Filtrar por nome" oninput="filterList()">
+                <input type="text" id="filterA" placeholder="Filtrar por nome" oninput="filterList('aList', 'filterA')">
             </div>
         </section>
 
@@ -51,7 +51,7 @@
                 <button class="btn" onclick="addGuest()">Adicionar Convidado</button>
                 <button class="btn" onclick="removeGuest()">Remover Convidado</button>
                 <button class="btn" onclick="sortList()">Ordenar Lista</button>
-                <input type="text" id="filterFiveLetters" placeholder="Filtrar por nome" oninput="filterList()">
+                <input type="text" id="filterFiveLetters" placeholder="Filtrar por nome" oninput="filterList('fiveLetterList', 'filterFiveLetters')">
             </div>
         </section>
     </main>
