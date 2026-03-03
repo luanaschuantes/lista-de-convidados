@@ -67,16 +67,4 @@ function filterList() {
     const filter = document.getElementById('filterName').value.toLowerCase();
     const filteredGuests = guests.filter(guest => guest.toLowerCase().includes(filter));
     
-    const guestListElement = document.getElementById('guestList');
-    guestListElement.innerHTML = '';
-    filteredGuests.forEach(guest => {
-        const listItem = document.createElement('li');
-        listItem.textContent = guest;
-        guestListElement.appendChild(listItem);
-    });
-}
-
-function sortList() {
-    guests.sort();
-    updateGuestList();
-}
+    const guestListElement = document.get
