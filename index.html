@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestor de Convidados</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
@@ -12,48 +12,24 @@
     </header>
 
     <main>
-        <!-- Botões de Navegação -->
-        <div class="buttons">
-            <button class="btn" onclick="toggleSection('convidados')" aria-label="Mostrar lista completa de convidados">Lista de Convidados</button>
-            <button class="btn" onclick="toggleSection('letraA')" aria-label='Mostrar convidados com "A"'>Convidados com "A"</button>
-            <button class="btn" onclick="toggleSection('cincoLetras')" aria-label="Mostrar convidados com 5 letras">Convidados com 5 Letras</button>
+        <section class="list-section">
+            <h2>Convidados em Maiúsculas</h2>
+            <ul id="upperCaseList"></ul>
+        </section>
+
+        <section class="list-section">
+            <h2>Convidados que Começam com a Letra "A"</h2>
+            <ul id="startsWithA"></ul>
+        </section>
+
+        <section class="list-section">
+            <h2>Convidados com Mais de 5 Letras</h2>
+            <ul id="moreThanFiveLetters"></ul>
+        </section>
+
+        <div>
+            <p>Convidados que começam com a letra "A": <span id="countStartsWithA"></span></p>
         </div>
-
-        <!-- Lista de Convidados -->
-        <section id="convidados" class="section" style="display: block;">
-            <h2>Lista de Convidados</h2>
-            <ul id="guestList"></ul>
-            <div class="controls">
-                <button class="btn" onclick="addGuest()">Adicionar Convidado</button>
-                <button class="btn" onclick="removeGuest()">Remover Convidado</button>
-                <button class="btn" onclick="sortList()">Ordenar Lista</button>
-                <input type="text" id="filterConvidados" placeholder="Filtrar por nome" oninput="filterList('guestList', 'filterConvidados')">
-            </div>
-        </section>
-
-        <!-- Convidados com a letra "A" -->
-        <section id="letraA" class="section" style="display: none;">
-            <h2>Convidados com "A"</h2>
-            <ul id="aList"></ul>
-            <div class="controls">
-                <button class="btn" onclick="addGuest()">Adicionar Convidado</button>
-                <button class="btn" onclick="removeGuest()">Remover Convidado</button>
-                <button class="btn" onclick="sortList()">Ordenar Lista</button>
-                <input type="text" id="filterA" placeholder="Filtrar por nome" oninput="filterList('aList', 'filterA')">
-            </div>
-        </section>
-
-        <!-- Convidados com 5 Letras -->
-        <section id="cincoLetras" class="section" style="display: none;">
-            <h2>Convidados com 5 Letras</h2>
-            <ul id="fiveLetterList"></ul>
-            <div class="controls">
-                <button class="btn" onclick="addGuest()">Adicionar Convidado</button>
-                <button class="btn" onclick="removeGuest()">Remover Convidado</button>
-                <button class="btn" onclick="sortList()">Ordenar Lista</button>
-                <input type="text" id="filterFiveLetters" placeholder="Filtrar por nome" oninput="filterList('fiveLetterList', 'filterFiveLetters')">
-            </div>
-        </section>
     </main>
 
     <footer>
