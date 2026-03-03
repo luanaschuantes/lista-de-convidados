@@ -1,5 +1,15 @@
 let guests = ["Ana", "Pedro", "João", "Maria", "Alexandre", "Luana", "André", "Lucas", "Isabela", "Arthur"];
 
+function toggleSection(sectionId) {
+    // Esconde todas as seções
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => section.style.display = 'none');
+
+    // Exibe a seção clicada
+    const selectedSection = document.getElementById(sectionId);
+    selectedSection.style.display = 'block';
+}
+
 function processGuestList() {
     let countA = 0;
     let countFiveLetters = 0;
