@@ -1,29 +1,32 @@
+/* Estilos gerais da página */
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    padding: 10px;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 20px;
 }
 
 h1 {
-    text-align: center;
+    margin: 0;
 }
 
-.container {
+main {
+    padding: 20px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
 }
 
-.list {
-    width: 30%;
-}
-
-.list ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-.list li {
-    margin-bottom: 10px;
+.buttons {
+    margin-bottom: 20px;
 }
 
 .btn {
@@ -33,12 +36,50 @@ h1 {
     border: none;
     cursor: pointer;
     font-size: 16px;
+    margin: 10px;
+    transition: background-color 0.3s;
+    border-radius: 5px;
 }
 
 .btn:hover {
     background-color: #45a049;
 }
 
-.result {
-    margin-top: 20px;
+.list-container {
+    width: 80%;
+    max-width: 600px;
+    margin: 10px 0;
+    padding: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: all 0.5s ease;
+}
+
+.list-container h2 {
+    text-align: center;
+    color: #4CAF50;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 5px 0;
+    font-size: 16px;
+    color: #555;
+}
+
+footer {
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    margin-top: 30px;
+}
+
+footer p {
+    margin: 0;
 }
