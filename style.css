@@ -1,90 +1,83 @@
-/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+// Inicialização das listas
+let guestList = ['Alice', 'Ana', 'Bruno', 'Carlos', 'Daniel', 'Alícia', 'Lucas', 'Maria'];
+
+// Função para alternar entre as seções
+function toggleSection(sectionId) {
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+        section.style.display = section.id === sectionId ? 'block' : 'none';
+    });
+    updateGuestList();
 }
 
-html, body {
-    height: 100%;
+// Função para filtrar convidados em cada lista
+function filterList(listId, inputId) {
+    const filter = document.getElementById(inputId).value.toLowerCase();
+    const listItems = document.querySelectorAll(`#${listId} li`);
+    listItems.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        item.style.display = text.includes(filter) ? '' : 'none';
+    });
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 20px;
+// Função para adicionar um novo convidado
+function addGuest() {
+    const guestName = prompt("Digite o nome do convidado:");
+    if (guestName && guestName.trim()) {
+        guestList.push(guestName.trim());
+        updateGuestList();
+    }
 }
 
-/* Header */
-header {
-    background-color: #FF5722;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    margin-bottom: 20px;
+// Função para remover um convidado
+function removeGuest() {
+    const guestName = prompt("Digite o nome do convidado para remover:");
+    const index = guestList.indexOf(guestName);
+    if (index > -1) {
+        guestList.splice(index, 1);
+        updateGuestList();
+    } else {
+        alert("Convidado não encontrado.");
+    }
 }
 
-h1 {
-    font-size: 28px;
-    font-weight: bold;
+// Função para ordenar a lista de convidados
+function sortList() {
+    guestList.sort();
+    updateGuestList();
 }
 
-/* Botões de navegação */
-.buttons {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
+// Função para atualizar as listas nas seções
+function updateGuestList() {
+    const guestListSection = document.getElementById('guestList');
+    const aListSection = document.getElementById('aList');
+    const fiveLetterListSection = document.getElementById('fiveLetterList');
 
-button {
-    background-color: #00BCD4;
-    color: white;
-    padding: 14px 28px;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
-    margin: 0 12px;
-    border-radius: 8px;
-    transition: background-color 0.3s;
-}
+    // Limpar as listas
+    guestListSection.innerHTML = '';
+    aListSection.innerHTML = '';
+    fiveLetterListSection.innerHTML = '';
 
-button:hover {
-    background-color: #0097A7;
-}
+    // Atualizar lista completa
+    guestList.forEach(guest => {
+        const li = document.createElement('li');
+        li.textContent = guest;
+        guestListSection.appendChild(li);
+        // Atualizar lista de convidados com "A"
+        if (guest[0].toUpperCase() === 'A') {
+            const liA = document.createElement('li');
+            liA.textContent = guest;
+            aListSection.appendChild(liA);
+        }
+        // Atualizar lista de convidados com 5 letras
+        if (guest.length === 5) {
+            const liFive = document.createElement('li');
+            liFive.textContent = guest;
+            fiveLetterListSection.appendChild(liFive);
+        }
+    });
 
-/* Seções */
-.section {
-    display: none;
-}
-
-.section#convidados {
-    display: block;
-}
-
-.controls {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-    flex-wrap: wrap;
-}
-
-input {
-    padding: 10px;
-    margin: 0 12px;
-    width: 220px;
-    font-size: 16px;
-    border-radius: 6px;
-    border: 1px solid #ddd;
-}
-
-footer {
-    background-color: #FF5722;
-    color: white;
-    text-align: center;
-    padding: 12px 0;
-    margin-top: 40px;
-}
+    // Aplicar filtro nas listas
+    filterList('guestList', 'filterConvidados');
+    filterList('aList', 'filterA');
+    filterList
