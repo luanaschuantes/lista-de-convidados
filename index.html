@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Convidados</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Lista de Convidados</h1>
+
+    <div class="container">
+        <!-- Lista de Convidados -->
+        <div class="list">
+            <h2>Lista de Convidados</h2>
+            <ul id="guestList">
+                <li>Ana</li>
+                <li>Pedro</li>
+                <li>João</li>
+                <li>Maria</li>
+                <li>Alexandre</li>
+                <li>Luana</li>
+                <li>André</li>
+                <li>Lucas</li>
+                <li>Isabela</li>
+                <li>Arthur</li>
+            </ul>
+        </div>
+
+        <!-- Botões de Ação -->
+        <div class="list">
+            <button class="btn" onclick="processGuestList()">Processar Lista</button>
+        </div>
+
+        <!-- Resultados -->
+        <div class="list result">
+            <h2>Resultados</h2>
+            <p><strong>Convidados com "A":</strong> <span id="countA"></span></p>
+            <p><strong>Convidados com 5 letras:</strong> <span id="countFiveLetters"></span></p>
+            <h3>Lista com nomes em maiúsculas:</h3>
+            <ul id="uppercaseList"></ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
