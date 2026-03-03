@@ -1,3 +1,13 @@
+function toggleList(id) {
+    const element = document.getElementById(id);
+    // Alterna a visibilidade da lista (mostra ou esconde)
+    if (element.style.display === "none") {
+        element.style.display = "block";
+    } else {
+        element.style.display = "none";
+    }
+}
+
 function processGuestList() {
     const guests = ["Ana", "Pedro", "João", "Maria", "Alexandre", "Luana", "André", "Lucas", "Isabela", "Arthur"];
     let countA = 0;
