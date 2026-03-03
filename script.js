@@ -66,5 +66,3 @@ function updateGuestList() {
 function filterList() {
     const filter = document.getElementById('filterName').value.toLowerCase();
     const filteredGuests = guests.filter(guest => guest.toLowerCase().includes(filter));
-    
-    const guestListElement = document.get
