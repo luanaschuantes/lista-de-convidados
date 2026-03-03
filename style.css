@@ -114,6 +114,10 @@ footer p {
 }
 
 @media (max-width: 768px) {
+    .buttons {
+        flex-direction: column;
+    }
+
     header nav ul {
         flex-direction: column;
     }
