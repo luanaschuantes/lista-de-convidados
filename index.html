@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -7,11 +8,19 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Lista de Convidados</h1>
+    <header>
+        <h1>Lista de Convidados</h1>
+    </header>
 
-    <div class="container">
+    <main class="container">
+        <!-- Área de Botões para Mostrar/Ocultar Listas -->
+        <section class="buttons">
+            <button class="btn" onclick="toggleList('guestListContainer')">Mostrar Lista de Convidados</button>
+            <button class="btn" onclick="toggleList('resultsContainer')">Mostrar Resultados</button>
+        </section>
+
         <!-- Lista de Convidados -->
-        <div class="list">
+        <section id="guestListContainer" class="list-container" style="display: none;">
             <h2>Lista de Convidados</h2>
             <ul id="guestList">
                 <li>Ana</li>
@@ -25,22 +34,26 @@
                 <li>Isabela</li>
                 <li>Arthur</li>
             </ul>
-        </div>
-
-        <!-- Botões de Ação -->
-        <div class="list">
-            <button class="btn" onclick="processGuestList()">Processar Lista</button>
-        </div>
+        </section>
 
         <!-- Resultados -->
-        <div class="list result">
+        <section id="resultsContainer" class="list-container" style="display: none;">
             <h2>Resultados</h2>
             <p><strong>Convidados com "A":</strong> <span id="countA"></span></p>
             <p><strong>Convidados com 5 letras:</strong> <span id="countFiveLetters"></span></p>
             <h3>Lista com nomes em maiúsculas:</h3>
             <ul id="uppercaseList"></ul>
-        </div>
-    </div>
+        </section>
+
+        <!-- Botão para Processar Lista -->
+        <section class="buttons">
+            <button class="btn" onclick="processGuestList()">Processar Lista</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Lista de Convidados</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
