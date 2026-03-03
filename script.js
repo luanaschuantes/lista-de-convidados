@@ -2,6 +2,7 @@
 let guests = [
     'Alice', 'Ana', 'Bruno', 'Carlos', 'Daniel', 'Alícia', 
     'Lucas', 'Maria', 'André', 'Amanda', 'Arthur', 'Adriana', 'Ricardo', 'Joaquim'
+
 ];
 
 // Função para transformar os nomes em maiúsculas
