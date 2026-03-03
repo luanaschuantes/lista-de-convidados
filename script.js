@@ -1,81 +1,52 @@
-let guests = ["Ana", "Pedro", "João", "Maria", "Alexandre", "Luana", "André", "Lucas", "Isabela", "Arthur"];
+// Lista inicial de convidados
+let guests = [
+    'Alice', 'Ana', 'Bruno', 'Carlos', 'Daniel', 'Alícia', 
+    'Lucas', 'Maria', 'André', 'Amanda', 'Arthur', 'Adriana', 'Ricardo', 'Joaquim'
+];
 
-// Atualiza as listas com os convidados
-function updateLists() {
-    // Limpar as listas
-    document.getElementById('guestList').innerHTML = '';
-    document.getElementById('aList').innerHTML = '';
-    document.getElementById('fiveLetterList').innerHTML = '';
-
+// Função para transformar os nomes em maiúsculas
+function toUpperCaseList() {
+    const upperCaseList = document.getElementById('upperCaseList');
+    upperCaseList.innerHTML = ''; // Limpar lista
     guests.forEach(guest => {
-        // Lista de Convidados
         const li = document.createElement('li');
-        li.textContent = guest;
-        document.getElementById('guestList').appendChild(li);
+        li.textContent = guest.toUpperCase(); // Nome em maiúsculas
+        upperCaseList.appendChild(li);
+    });
+}
 
-        // Lista de Convidados com "A"
-        if (guest.charAt(0).toUpperCase() === 'A') {
-            const liA = document.createElement('li');
-            liA.textContent = guest;
-            document.getElementById('aList').appendChild(liA);
+// Função para contar e listar convidados que começam com a letra 'A'
+function startsWithA() {
+    const startsWithAList = document.getElementById('startsWithA');
+    startsWithAList.innerHTML = ''; // Limpar lista
+    let count = 0;
+    guests.forEach(guest => {
+        if (guest[0].toUpperCase() === 'A') {
+            const li = document.createElement('li');
+            li.textContent = guest;
+            startsWithAList.appendChild(li);
+            count++;
         }
+    });
+    document.getElementById('countStartsWithA').textContent = count; // Exibir a contagem
+}
 
-        // Lista de Convidados com 5 letras
-        if (guest.length === 5) {
-            const liFive = document.createElement('li');
-            liFive.textContent = guest;
-            document.getElementById('fiveLetterList').appendChild(liFive);
+// Função para listar convidados com mais de 5 letras
+function moreThanFiveLetters() {
+    const moreThanFiveLettersList = document.getElementById('moreThanFiveLetters');
+    moreThanFiveLettersList.innerHTML = ''; // Limpar lista
+    guests.forEach(guest => {
+        if (guest.length > 5) {
+            const li = document.createElement('li');
+            li.textContent = guest;
+            moreThanFiveLettersList.appendChild(li);
         }
     });
 }
 
-// Alterna entre as seções de listas
-function toggleSection(sectionId) {
-    const sections = document.querySelectorAll('.section');
-    sections.forEach(section => section.style.display = 'none');
-    
-    const selectedSection = document.getElementById(sectionId);
-    selectedSection.style.display = 'block';
-}
-
-// Adiciona um convidado à lista
-function addGuest() {
-    const name = prompt("Digite o nome do convidado:");
-    if (name) {
-        guests.push(name);
-        updateLists();
-    }
-}
-
-// Remove um convidado da lista
-function removeGuest() {
-    const name = prompt("Digite o nome do convidado a remover:");
-    if (name) {
-        guests = guests.filter(guest => guest !== name);
-        updateLists();
-    }
-}
-
-// Ordena a lista de convidados
-function sortList() {
-    guests.sort();
-    updateLists();
-}
-
-// Filtra os convidados com base no nome
-function filterList() {
-    const filter = document.getElementById('filterConvidados').value.toLowerCase();
-    const filteredGuests = guests.filter(guest => guest.toLowerCase().includes(filter));
-    
-    const listElement = document.getElementById('guestList');
-    listElement.innerHTML = '';
-    filteredGuests.forEach(guest => {
-        const li = document.createElement('li');
-        li.textContent = guest;
-        listElement.appendChild(li);
-    });
-}
-
-// Filtra a lista com "A"
-function filterListA() {
-    const filter = document.getElementById('filterA').value
+// Chamar as funções quando a página carrega
+window.onload = function() {
+    toUpperCaseList();
+    startsWithA();
+    moreThanFiveLetters();
+};
