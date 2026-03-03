@@ -2,7 +2,6 @@
 let guests = [
     'Alice', 'Ana', 'Bruno', 'Carlos', 'Daniel', 'Alícia', 
     'Lucas', 'Maria', 'André', 'Amanda', 'Arthur', 'Adriana', 'Ricardo', 'Joaquim'
-
 ];
 
 // Função para transformar os nomes em maiúsculas
@@ -18,7 +17,7 @@ function toUpperCaseList() {
 
 // Função para contar e listar convidados que começam com a letra 'A'
 function startsWithA() {
-    const startsWithAList = document.getElementById('startsWithA');
+    const startsWithAList = document.getElementById('startsWithAList');
     startsWithAList.innerHTML = ''; // Limpar lista
     let count = 0;
     guests.forEach(guest => {
@@ -34,7 +33,7 @@ function startsWithA() {
 
 // Função para listar convidados com mais de 5 letras
 function moreThanFiveLetters() {
-    const moreThanFiveLettersList = document.getElementById('moreThanFiveLetters');
+    const moreThanFiveLettersList = document.getElementById('moreThanFiveLettersList');
     moreThanFiveLettersList.innerHTML = ''; // Limpar lista
     guests.forEach(guest => {
         if (guest.length > 5) {
@@ -45,9 +44,23 @@ function moreThanFiveLetters() {
     });
 }
 
+// Função para alternar a visibilidade das seções
+function showContent(sectionId) {
+    // Esconde todas as seções
+    const sections = document.querySelectorAll('.content');
+    sections.forEach(section => section.style.display = 'none');
+
+    // Mostra a seção correspondente
+    document.getElementById(sectionId).style.display = 'block';
+}
+
 // Chamar as funções quando a página carrega
 window.onload = function() {
+    // Inicializa todas as seções
     toUpperCaseList();
     startsWithA();
     moreThanFiveLetters();
+
+    // Mostra a primeira seção (por exemplo, "Convidados em Maiúsculas")
+    showContent('upperCase');
 };
