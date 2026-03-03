@@ -3,38 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestor de Convidados</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Lista de Convidados</title>
+    <style>
+        /* Estilos básicos para os menus */
+        #menu {
+            margin: 10px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+
+        #menu button {
+            margin: 5px;
+            padding: 10px;
+            cursor: pointer;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+        }
+
+        #menu button:hover {
+            background-color: #45a049;
+        }
+
+        /* Estilo para as listas */
+        .content {
+            display: none;
+            margin: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            padding: 5px 0;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Gestor de Convidados</h1>
-    </header>
 
-    <main>
-        <section class="list-section">
-            <h2>Convidados em Maiúsculas</h2>
-            <ul id="upperCaseList"></ul>
-        </section>
+    <!-- Menu de Navegação -->
+    <div id="menu">
+        <button onclick="showContent('upperCase')">Convidados em Maiúsculas</button>
+        <button onclick="showContent('startsWithA')">Convidados que começam com 'A'</button>
+        <button onclick="showContent('moreThanFiveLetters')">Convidados com mais de 5 letras</button>
+    </div>
 
-        <section class="list-section">
-            <h2>Convidados que Começam com a Letra "A"</h2>
-            <ul id="startsWithA"></ul>
-        </section>
+    <!-- Seções de Conteúdo -->
+    <div id="upperCase" class="content">
+        <h2>Convidados em Maiúsculas</h2>
+        <ul id="upperCaseList"></ul>
+    </div>
 
-        <section class="list-section">
-            <h2>Convidados com Mais de 5 Letras</h2>
-            <ul id="moreThanFiveLetters"></ul>
-        </section>
+    <div id="startsWithA" class="content">
+        <h2>Convidados que começam com 'A' (<span id="countStartsWithA">0</span>)</h2>
+        <ul id="startsWithAList"></ul>
+    </div>
 
-        <div>
-            <p>Convidados que começam com a letra "A": <span id="countStartsWithA"></span></p>
-        </div>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Gestor de Convidados</p>
-    </footer>
+    <div id="moreThanFiveLetters" class="content">
+        <h2>Convidados com mais de 5 letras</h2>
+        <ul id="moreThanFiveLettersList"></ul>
+    </div>
 
     <script src="script.js"></script>
 </body>
