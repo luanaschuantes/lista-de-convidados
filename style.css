@@ -11,7 +11,7 @@ html, body {
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9; /* Fundo mais claro */
+    background-color: #f9f9f9;
     color: #333;
     display: flex;
     flex-direction: column;
@@ -21,7 +21,7 @@ body {
 
 /* Header */
 header {
-    background-color: #FF5722; /* Laranja vibrante */
+    background-color: #FF5722;
     color: white;
     text-align: center;
     padding: 20px 0;
@@ -33,7 +33,7 @@ h1 {
     font-weight: bold;
 }
 
-/* Buttons */
+/* Botões de navegação */
 .buttons {
     display: flex;
     justify-content: center;
@@ -41,7 +41,7 @@ h1 {
 }
 
 button {
-    background-color: #00BCD4; /* Azul turquesa vibrante */
+    background-color: #00BCD4;
     color: white;
     padding: 14px 28px;
     border: none;
@@ -53,30 +53,18 @@ button {
 }
 
 button:hover {
-    background-color: #0097A7; /* Tom de azul mais escuro */
+    background-color: #0097A7;
 }
 
-/* Sections and List */
-section {
-    margin-bottom: 40px;
+/* Seções */
+.section {
+    display: none;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 20px;
+.section#convidados {
+    display: block;
 }
 
-li {
-    background-color: #FFEB3B; /* Amarelo vibrante */
-    color: #333;
-    padding: 12px;
-    border: 1px solid #ddd;
-    margin-bottom: 8px;
-    border-radius: 6px;
-}
-
-/* Controls */
 .controls {
     display: flex;
     justify-content: center;
@@ -93,27 +81,10 @@ input {
     border: 1px solid #ddd;
 }
 
-/* Footer */
 footer {
-    background-color: #FF5722; /* Laranja vibrante igual ao header */
+    background-color: #FF5722;
     color: white;
     text-align: center;
     padding: 12px 0;
     margin-top: 40px;
-}
-
-footer p {
-    margin: 0;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .buttons {
-        flex-direction: column;
-    }
-
-    .controls {
-        flex-direction: column;
-        align-items: center;
-    }
 }
