@@ -12,18 +12,19 @@
     <header>
         <div class="container">
             <h1>Gestor de Convidados</h1>
-            <nav>
-                <ul>
-                    <li><a href="#convidados">Lista de Convidados</a></li>
-                    <li><a href="#comandos">Comandos</a></li>
-                    <li><a href="#resultados">Resultados</a></li>
-                </ul>
-            </nav>
         </div>
     </header>
 
     <main>
-        <section id="convidados" class="section">
+        <!-- Botões para Alternar Entre as Seções -->
+        <section class="buttons">
+            <button class="btn" onclick="toggleSection('convidados')">Lista de Convidados</button>
+            <button class="btn" onclick="toggleSection('resultados')">Resultados</button>
+            <button class="btn" onclick="toggleSection('comandos')">Comandos</button>
+        </section>
+
+        <!-- Lista de Convidados -->
+        <section id="convidados" class="section" style="display: none;">
             <h2>Lista de Convidados</h2>
             <ul id="guestList">
                 <li>Ana</li>
@@ -39,7 +40,8 @@
             </ul>
         </section>
 
-        <section id="comandos" class="section">
+        <!-- Comandos -->
+        <section id="comandos" class="section" style="display: none;">
             <h2>Comandos</h2>
             <div class="command-box">
                 <button class="btn" onclick="processGuestList()">Processar Lista</button>
@@ -53,7 +55,8 @@
             </div>
         </section>
 
-        <section id="resultados" class="section">
+        <!-- Resultados -->
+        <section id="resultados" class="section" style="display: none;">
             <h2>Resultados</h2>
             <p><strong>Convidados com "A":</strong> <span id="countA">0</span></p>
             <p><strong>Convidados com 5 letras:</strong> <span id="countFiveLetters">0</span></p>
